@@ -1,4 +1,5 @@
 #include "phonebook.hpp"
+#include "contact.hpp"
 
 void Phonebook::add_in()
 {
