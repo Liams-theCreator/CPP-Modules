@@ -13,22 +13,19 @@ class Contact
         std::string PhoneNumber;
         std::string DarkestSecret;
     public:
-        Contact();
-        ~Contact();
-
-        bool set_FirstName(std::string &FirstName);
+        bool set_FirstName(std::string FirstName);
         std::string get_FirstName();
 
-        bool set_LastName(std::string &LastName);
+        bool set_LastName(std::string LastName);
         std::string get_LastName();
 
-        bool set_NickName(std::string &NickName);
+        bool set_NickName(std::string NickName);
         std::string get_NickName();
 
-        bool set_DarkestSecret(std::string &DarkestSecret);
+        bool set_DarkestSecret(std::string DarkestSecret);
         std::string get_DarkestSecret();
 
-        bool set_PhoneNumber(std::string &PhoneNumber);
+        bool set_PhoneNumber(std::string PhoneNumber);
         std::string get_PhoneNumber();
 };
 
@@ -36,9 +33,13 @@ class Phonebook
 {
     private:
         Contact contacts[8];
+        int counter;
+        int idx;
     public:
         Phonebook();
-        ~Phonebook();
+
+        void add_in();
+        void search_in();
 };
 
 #endif
