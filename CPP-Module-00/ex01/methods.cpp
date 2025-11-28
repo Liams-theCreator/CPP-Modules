@@ -70,7 +70,8 @@ std::string wide(std::string str)
 void Phonebook::search_in()
 {
     int i = 0;
-    
+    std::string input;
+
     std::cout << "|  Index   |First Name|Last Name | Nickname |" << '\n';
     while (i < counter)
     {
@@ -81,8 +82,6 @@ void Phonebook::search_in()
         std::cout << "|" << '\n' ;
         i++;
     }
-
-    std::string input;
     std::cout << "Enter Index: ";
     std::getline(std::cin, input);
     if (input.length() == 1 && input[0] >= '0' && input[0] <= '7')
