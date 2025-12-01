@@ -6,9 +6,9 @@ int main(void)
     randomChump("Stack Zombie");
 
     std::cout << "Heap example" << '\n';
-    Zombie *zaba = newZombie("Heap Zombie");
-    zaba->announce();
-    delete zaba;
+    Zombie *zom = newZombie("Heap Zombie");
+    zom->announce();
+    delete zom;
     
     return 0;
 }
