@@ -29,17 +29,25 @@ void Harl::error()
 
 void Harl::complain(std::string level)
 {
-    void (Harl::*funcPtr[4])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
     std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
     int i = 0;
 
-    for ( ;i < 4; i++)
+    for ( ;i < 4 && levels[i] != level; i++) ;
+    switch (i)
     {
-        if (levels[i] == level)
-        {
-            (this->*funcPtr[i])();
-            return ;
-        }
+        case H_DEBUG:
+            debug();
+            // fall through
+        case H_INFO:
+            info();
+            // fall through
+        case H_WARNING:
+            warning();
+            // fall through
+        case H_ERROR:
+            error();
+            break;
+        default:
+            std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
     }
-    std::cout << level << ": Doesnt exist!" << std::endl;
 }
