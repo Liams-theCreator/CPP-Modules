@@ -8,9 +8,11 @@ class Fixed
 {
     private:
         int fpoint_value;
-        static const int fbits;
+        static const int fbits = 8;
     public:
-        Fixed(int fpoint_value);
+        Fixed();
+        Fixed(const Fixed &Cpy);
+        Fixed& operator=(const Fixed &other);
         ~Fixed();
 
         int getRawBits(void) const;

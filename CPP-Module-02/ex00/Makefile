@@ -7,16 +7,16 @@ OBJS = $(SRC:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-        $(CPP) $(FLAGS) $(OBJS) -o $(NAME)
+	$(CPP) $(FLAGS) $(OBJS) -o $(NAME)
 
 %.o: %.cpp
-        $(CPP) $(FLAGS) -c $<
+	$(CPP) $(FLAGS) -c $<
 
 clean:
-        rm -f $(OBJS)
+	rm -f $(OBJS)
 
 fclean: clean
-        rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 
