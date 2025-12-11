@@ -2,7 +2,7 @@
 
 Fixed::Fixed(): fpoint_value(0)
 {
-    std::cout << "Default contructor called\n";  
+    std::cout << "Default constructor called\n";  
 }
 
 Fixed::~Fixed()
