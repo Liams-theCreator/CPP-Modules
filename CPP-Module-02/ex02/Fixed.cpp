@@ -142,23 +142,27 @@ const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
         return b;
 }
 
-Fixed &Fixed::operator++() {
+Fixed &Fixed::operator++()
+{
     ++fpoint_value;
     return *this;
 }
 
-Fixed Fixed::operator++(int) {
+Fixed Fixed::operator++(int)
+{
     Fixed temp(*this);
     ++fpoint_value;
     return temp;
 }
 
-Fixed &Fixed::operator--() {
+Fixed &Fixed::operator--()
+{
     --fpoint_value;
     return *this;
 }
 
-Fixed Fixed::operator--(int) {
+Fixed Fixed::operator--(int)
+{
     Fixed temp(*this);
     --fpoint_value;
     return temp;
