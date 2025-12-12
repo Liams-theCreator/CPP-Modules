@@ -14,12 +14,11 @@ Fixed::Fixed(const Fixed &Cpy): fpoint_value(Cpy.fpoint_value)
 {
     std::cout << "Copy constructor called\n";
 }
-
 Fixed& Fixed::operator=(const Fixed &other)
 {
-    std::cout << "Copy assignment constructor called\n";
+    std::cout << "Copy assignment operator called\n";
     if (this != &other)
-        this->fpoint_value = other.fpoint_value;
+        fpoint_value = other.fpoint_value;
     return *this;
 }
 

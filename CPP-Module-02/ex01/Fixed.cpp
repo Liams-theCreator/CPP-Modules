@@ -8,12 +8,12 @@ Fixed::Fixed(): fpoint_value(0)
 Fixed::Fixed(const int num)
 {
     std::cout << "Int constructor called\n";
-    this->fpoint_value = num << this->fbits;
+    fpoint_value = num << fbits;
 }
 Fixed::Fixed(const float num)
 {
     std::cout << "Float constructor called\n";
-    this->fpoint_value = roundf(num *(1 << this->fbits));
+    fpoint_value = roundf(num *(1 << fbits));
 }
 
 Fixed::~Fixed()
@@ -46,12 +46,12 @@ void Fixed::setRawBits(int const raw)
 }
 float Fixed::toFloat(void) const
 {
-    return (float)this->fpoint_value / (1 << this->fbits);
+    return (float)fpoint_value / (1 << fbits);
 }
 
 int Fixed::toInt(void) const
 {
-    return this->fpoint_value >> this->fbits;
+    return fpoint_value >> fbits;
 }
 
 std::ostream &operator<<(std::ostream &out, const Fixed &num)
