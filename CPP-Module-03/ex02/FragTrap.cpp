@@ -1,5 +1,12 @@
 #include "FragTrap.hpp"
 
+FragTrap::FragTrap(): ClapTrap("noname") {
+    std::cout << "FragTrap Default constructor called\n";
+    this->hit_points = 100;
+    this->energy_points = 100;
+    this->attack_damage = 30;
+}
+
 FragTrap::FragTrap(std::string name): ClapTrap(name)
 {
     std::cout << "FragTrap Parametrized constructor called\n";
@@ -41,5 +48,5 @@ void FragTrap::attack(const std::string& target)
 
 void FragTrap::highFivesGuys(void)
 {
-    std::cout << "FragTrap " << this->name << " requests a positive high five!\n";
+    std::cout << "FragTrap [ " << this->name << " ] requests a positive high five!\n";
 }
