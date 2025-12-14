@@ -2,7 +2,7 @@
 
 FragTrap::FragTrap(std::string name): ClapTrap(name)
 {
-    std::cout << "Parametrized constructor called\n";
+    std::cout << "FragTrap Parametrized constructor called\n";
     this->hit_points = 100;
     this->energy_points = 100;
     this->attack_damage = 30;
@@ -10,12 +10,12 @@ FragTrap::FragTrap(std::string name): ClapTrap(name)
 
 FragTrap::FragTrap(const FragTrap &other): ClapTrap(other)
 {
-    std::cout << "Copy constructor called\n";
+    std::cout << "FragTrap Copy constructor called\n";
 }
 
 FragTrap &FragTrap::operator=(const FragTrap &other)
 {
-    std::cout << "Copy assignment operator called\n";
+    std::cout << "FragTrap Copy assignment operator called\n";
     if (this != &other)
         ClapTrap::operator=(other);
     return *this;
@@ -23,7 +23,7 @@ FragTrap &FragTrap::operator=(const FragTrap &other)
 
 FragTrap::~FragTrap()
 {
-    std::cout << "Destructor called\n";
+    std::cout << "FragTrap Destructor called\n";
 }
 
 void FragTrap::attack(const std::string& target)

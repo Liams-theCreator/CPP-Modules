@@ -2,7 +2,7 @@
 
 ScavTrap::ScavTrap(): ClapTrap("noname")
 {
-    std::cout << "Default constructor called\n";
+    std::cout << "ScavTrap Default constructor called\n";
     this->hit_points = 100;
     this->energy_points = 50;
     this->attack_damage = 20;
@@ -10,7 +10,7 @@ ScavTrap::ScavTrap(): ClapTrap("noname")
 
 ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 {
-    std::cout << "Parametrized constructor called\n";
+    std::cout << "ScavTrap Parametrized constructor called\n";
     this->hit_points = 100;
     this->energy_points = 50;
     this->attack_damage = 20; 
@@ -18,12 +18,12 @@ ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 
 ScavTrap::ScavTrap(const ScavTrap &other): ClapTrap(other)
 {
-    std::cout << "Copy constructor called\n";
+    std::cout << "ScavTrap Copy constructor called\n";
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &other)
 {
-    std::cout << "Copy assignment operator called\n";
+    std::cout << "ScavTrap Copy assignment operator called\n";
     if (this != &other)
         ClapTrap::operator=(other);
     return *this;
@@ -31,7 +31,7 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &other)
 
 ScavTrap::~ScavTrap()
 {
-    std::cout << "Destructor called \n";
+    std::cout << "ScavTrap Destructor called \n";
 }
 
 void ScavTrap::attack(const std::string& target)
