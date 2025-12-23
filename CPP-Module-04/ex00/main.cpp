@@ -19,16 +19,16 @@ int main()
     delete j;
     delete i;
 
-    std::cout << "\n----- Wrong Animals -----" << std::endl;
-    const WrongAnimal *wrongMeta = new WrongAnimal();
-    const WrongAnimal *wrongI = new WrongCat();
+    std::cout << "\n------- Wrong Animal/Cat -------\n";
+    const WrongAnimal *wrongAnimal = new WrongAnimal();
+    const WrongAnimal *wrongCat = new WrongCat();
 
-    std::cout << wrongI->getType() << " " << std::endl;
-    wrongI->makeSound();
-    wrongMeta->makeSound();
+    std::cout << wrongCat->getType() << " " << std::endl;
+    wrongCat->makeSound();
+    wrongAnimal->makeSound();
 
-    delete wrongMeta;
-    delete wrongI;
+    delete wrongAnimal;
+    delete wrongCat;
 
     return 0;
 }
