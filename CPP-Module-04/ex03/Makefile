@@ -1,7 +1,7 @@
 CPP = c++
 FLAGS = -Werror -Wall -Wextra -std=c++98
 NAME = out
-SRC = main.cpp
+SRC = main.cpp AMateria.cpp Cure.cpp Ice.cpp Character.cpp ICharacter.cpp MateriaSource.cpp IMateriaSource.cpp
 OBJS = $(SRC:.cpp=.o)
 
 all: $(NAME)
