@@ -38,6 +38,10 @@ int main()
 
     std::cout << originalDog.getBrainIdea(0) << std::endl;
     std::cout << copiedDog.getBrainIdea(0) << std::endl;
-        
+    
+    // Dog boby;
+    // {
+    //     Dog tmp = boby;
+    // }
     return 0;
 }

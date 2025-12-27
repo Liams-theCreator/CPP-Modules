@@ -7,7 +7,6 @@ class MateriaSource : public IMateriaSource
 {
     private:
         AMateria* sources[4];
-
     public:
         MateriaSource();
         MateriaSource(MateriaSource const & other);
@@ -17,6 +16,5 @@ class MateriaSource : public IMateriaSource
         void learnMateria(AMateria* m);
         AMateria* createMateria(std::string const & type);
 };
-
 
 #endif
