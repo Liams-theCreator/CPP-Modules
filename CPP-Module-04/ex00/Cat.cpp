@@ -7,7 +7,7 @@ Cat::Cat(): Animal("Cat")
 
 Cat::~Cat()
 {
-    std::cout << "Cat Destructor called\n";
+    std::cout << "Cat Destructor called" << std::endl;
 }
 
 Cat &Cat::operator=(const Cat &other)

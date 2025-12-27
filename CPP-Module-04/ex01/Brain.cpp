@@ -4,7 +4,7 @@ Brain::Brain() {
     std::cout << "Brain Default Constructor called\n";
     int i = 0;
     for ( ; i < 100; i++)
-        ideas[i] = "";
+        ideas[i] = "idea";
 }
 
 Brain::Brain(const Brain &other) {

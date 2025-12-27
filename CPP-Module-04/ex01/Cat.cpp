@@ -15,7 +15,8 @@ Cat::~Cat()
 Cat &Cat::operator=(const Cat &other) 
 {
     std::cout << "Cat Copy Assignment Operator called\n";
-    if (this != &other) {
+    if (this != &other) 
+    {
         Animal::operator=(other);
         delete brain;
         brain = new Brain(*other.brain);
@@ -32,4 +33,13 @@ Cat::Cat(const Cat &other) : Animal(other)
 void Cat::makeSound() const 
 {
     std::cout << "Meow\n";
+}
+
+void Cat::setBrianIdea(int idx, const std::string &idea)
+{
+    brain->setIdea(idx, idea);
+}
+std::string Cat::getBrainIdea(int idx) const
+{
+    return brain->getIdea(idx);
 }

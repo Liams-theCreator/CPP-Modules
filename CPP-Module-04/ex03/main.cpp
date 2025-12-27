@@ -8,15 +8,11 @@ int main()
 {
     IMateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
-    src->learnMateria(new Cure());
-    
-    ICharacter* me = new Character("me");
+    src->learnMateria(new Cure());  
 
-    AMateria* tmp;
-    tmp = src->createMateria("ice");
-    me->equip(tmp);
-    tmp = src->createMateria("cure");
-    me->equip(tmp);
+    ICharacter* me = new Character("me");
+    me->equip(src->createMateria("ice"));
+    me->equip(src->createMateria("cure"));
 
     ICharacter* bob = new Character("bob");
 
@@ -26,6 +22,5 @@ int main()
     delete bob;
     delete me;
     delete src;
-
     return 0;
 }

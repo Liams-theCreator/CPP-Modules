@@ -19,24 +19,25 @@ int main()
     {
         animals[i]->makeSound();
     }
+
     i = 0;
     for ( ; i < 6; i++)
     {
         delete animals[i];
     }
 
-    std::cout << "\n ---- Testing deep copy of Dog ----\n";
+    std::cout << "\n ---- Deep copy test ----\n";
     Dog originalDog;
     originalDog.makeSound();
-    Dog copiedDog = originalDog;
+    originalDog.setBrianIdea(0, "Original dog idea");
+    
+    Dog copiedDog;
+    copiedDog = originalDog;
     copiedDog.makeSound();
+    copiedDog.setBrianIdea(0, "Copied dog idea");
 
-    std::cout << "\n ---- Testing deep copy of Cat ----\n";
-    Cat originalCat;
-    originalCat.makeSound();
-    Cat copiedCat;
-    copiedCat = originalCat;
-    copiedCat.makeSound();
-
+    std::cout << originalDog.getBrainIdea(0) << std::endl;
+    std::cout << copiedDog.getBrainIdea(0) << std::endl;
+        
     return 0;
 }
