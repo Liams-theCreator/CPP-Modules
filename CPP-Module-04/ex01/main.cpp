@@ -16,15 +16,11 @@ int main()
     animals[5] = new Cat();
 
     for ( ; i < 6; i++)
-    {
         animals[i]->makeSound();
-    }
 
     i = 0;
     for ( ; i < 6; i++)
-    {
         delete animals[i];
-    }
 
     std::cout << "\n ---- Deep copy test ----\n";
     Dog originalDog;
