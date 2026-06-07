@@ -7,13 +7,9 @@ int main()
 
         a.decrement(); // should throw (grade would go to 0)
     }
-    catch (Bureaucrat::GradeTooHighException &smya)
+    catch (std::exception &e)
     {
-        std::cout << "Exception -> " << smya.what();
-    }
-    catch (Bureaucrat::GradeTooLowException &smya)
-    {
-        std::cout << "Exception -> " << smya.what();
+        std::cout << "Exception -> " << e.what();
     }
     return 0;
 }
