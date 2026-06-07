@@ -7,10 +7,7 @@ Bureaucrat::Bureaucrat(const std::string name, const unsigned int grade): _name(
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &other)
 {
     if (this != &other)
-    {
-        _name = other._name;
         _grade = other._grade;
-    }
     return *this;
 }
 
@@ -25,12 +22,12 @@ const unsigned int Bureaucrat::getGrade()
     return _grade;
 }
 
-void incGrade()
+void Bureaucrat::incGrade()
 {
     _grade++;
 };
 
-void decGrade()
+void Bureaucrat::decGrade()
 {
     _grade--;
 };
