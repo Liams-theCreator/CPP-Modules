@@ -2,7 +2,7 @@
 
 Bureaucrat::Bureaucrat() {}
 Bureaucrat::Bureaucrat(const Bureaucrat &other): _name(other._name), _grade(other._grade) {}
-Bureaucrat::Bureaucrat(const std::string name, const unsigned int grade): _name(name), _grade(grade) {}
+Bureaucrat::Bureaucrat(const std::string name, int grade): _name(name), _grade(grade) {}
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &other)
 {
@@ -13,21 +13,41 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat &other)
 
 Bureaucrat::~Bureaucrat() {};
 
-const std::string Bureaucrat::getName()
+const std::string Bureaucrat::getName() const
 {
     return _name;
 }
-const unsigned int Bureaucrat::getGrade()
+int Bureaucrat::getGrade() const
 {
     return _grade;
 }
 
-void Bureaucrat::incGrade()
+void Bureaucrat::increment()
 {
+    if (_grade - 1 < 1)
+        throw GradeTooHighException();
+    _grade--;
+};
+
+void Bureaucrat::decrement()
+{
+    if (_grade + 1 > 150)
+        throw GradeTooLowException();
     _grade++;
 };
 
-void Bureaucrat::decGrade()
+const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-    _grade--;
-};
+    return "Grade too High\n";
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw()
+{
+    return "Grade too Low\n";
+}
+
+std::ostream &operator<<(std::ostream &os, const Bureaucrat &obj)
+{
+    os << obj.getName() << ", bureaucrat grade " << obj.getGrade() << ".";
+    return os;
+}

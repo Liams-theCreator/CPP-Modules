@@ -9,19 +9,31 @@ class Bureaucrat
 {
     private:
         const std::string _name;
-        unsigned int _grade;
+        int _grade;
     public:
         Bureaucrat();
-        Bureaucrat(const std::string name, const unsigned int grade);
+        Bureaucrat(const std::string name, int grade);
         Bureaucrat(const Bureaucrat &other);
         Bureaucrat& operator=(const Bureaucrat &other);
         ~Bureaucrat();
 
-        const std::string getName();
-        const unsigned int getGrade();
+        class GradeTooHighException : std::exception
+        {
+            public:
+                const char* what() const throw();
+        };
+        class GradeTooLowException : std::exception
+        {
+            public:
+                const char* what() const throw();
+        };
 
-        void incGrade();
-        void decGrade();
+        const std::string getName() const;
+        int getGrade() const;
+
+        void increment();
+        void decrement();
 };
 
+std::ostream &operator<<(std::ostream &os, const Bureaucrat &object);
 #endif
