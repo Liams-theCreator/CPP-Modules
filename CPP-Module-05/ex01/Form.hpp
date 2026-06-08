@@ -12,12 +12,13 @@ class Form
     private:
         const std::string _name;
         bool _sign;
-        const int _gradeSign;
-        const int _gradeExec; 
+        int _gradeSign;
+        int _gradeExec; 
     public:
 
     Form();
     Form(const Form &other);
+    Form(const std::string name, int gradeSign, int gradeExec);
     Form &operator=(const Form &other);
     ~Form();
 
@@ -33,10 +34,10 @@ class Form
             const char* what() const throw();
     };
 
-    const std::string getName();
-    bool getSign();
-    const int getGradeSign();
-    const int getGradeExec();
+    std::string getName() const;
+    bool getSign() const;
+    int getGradeSign() const;
+    int getGradeExec() const;
 
     void beSigned(const Bureaucrat &obj);
 };
