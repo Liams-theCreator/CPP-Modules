@@ -56,7 +56,7 @@ void Bureaucrat::signForm(Form &fm)
 {
     try
     {
-        fm.beSigned(this);
+        fm.beSigned(*this);
         std::cout << fm;
     }
     catch (std::exception &e) 

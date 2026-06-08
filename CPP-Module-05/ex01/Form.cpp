@@ -1,10 +1,10 @@
 #include "Form.hpp"
 
-Form() {}
+Form::Form() {}
 
-Form(const Form &o): _name(o._name), _gradeExec(o._gradeExec), _gradeSign(o._gradeSign), _sign(o._sign) {}
+Form::Form(const Form &o): _name(o._name), _gradeExec(o._gradeExec), _gradeSign(o._gradeSign), _sign(o._sign) {}
 
-Form(const std::string name, int gradeSign, int gradeExec): _name(name), _gradeSign(gradeSign), _gradeExec(gradeExec)
+Form::Form(const std::string name, int gradeSign, int gradeExec): _name(name), _gradeSign(gradeSign), _gradeExec(gradeExec)
 {
     if (_gradeSign < 1 || _gradeExec < 1)
         throw GradeTooHighException();
@@ -12,18 +12,14 @@ Form(const std::string name, int gradeSign, int gradeExec): _name(name), _gradeS
         throw GradeTooLowException();
 }
 
-Form &operator=(const Form &other)
+Form &Form::operator=(const Form &other)
 {
     if (this != &other)
-    {
-        _gradeSign = other._gradeSign;
-        _gradeExec = other._gradeExec;
         _sign = other._sign;
-    }
     return *this;
 }
 
-~Form() {}
+Form::~Form() {}
 
 const char* Form::GradeTooHighException::what() const throw()
 {
@@ -55,10 +51,8 @@ int Form::getGradeExec() const
 
 void Form::beSigned(const Bureaucrat &obj)
 {
-    if (obj.getGrade() > 150)
+    if (obj.getGrade() > _gradeSign)
         throw GradeTooLowException();
-    else if (obj.getGrade() < 1)
-        throw GradeTooHighException();
     _sign = true;
 }
 
