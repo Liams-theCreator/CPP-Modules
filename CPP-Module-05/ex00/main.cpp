@@ -3,9 +3,10 @@
 int main() 
 {
     try {
-        Bureaucrat a("Alice", 150);
+        Bureaucrat a("Alice", 2);
 
-        a.decrement(); // should throw (grade would go to 0)
+        a.increment();
+        std::cout << a;
     }
     catch (std::exception &e)
     {
