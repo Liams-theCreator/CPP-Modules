@@ -1,0 +1,69 @@
+#include "Form.hpp"
+
+Form() {}
+
+Form(const Form &o): _name(o._name), _gradeExec(o._gradeExec), _gradeSign(o._gradeSign), _sign(o._sign) {}
+
+Form(const std::string name, int gradeSign, int gradeExec): _name(name), _gradeSign(gradeSign), _gradeExec(gradeExec)
+{
+    if (_gradeSign < 1 || _gradeExec < 1)
+        throw GradeTooHighException();
+    else if (_gradeSign > 150 || _gradeExec > 150)
+        throw GradeTooLowException();
+}
+
+Form &operator=(const Form &other)
+{
+    if (this != &other)
+    {
+        _gradeSign = other._gradeSign;
+        _gradeExec = other._gradeExec;
+        _sign = other._sign;
+    }
+    return *this;
+}
+
+~Form() {}
+
+const char* Form::GradeTooHighException::what() const throw()
+{
+    return "Grade too High\n";
+}
+
+const char* Form::GradeTooLowException::what() const throw()
+{
+    return "Grade too Low\n";
+}
+
+std::string Form::getName() const
+{
+    return _name;
+}
+
+bool Form::getSign() const
+{
+    return _sign;
+}
+int Form::getGradeSign() const
+{
+    return _gradeSign;
+}
+int Form::getGradeExec() const
+{
+    return _gradeExec;
+}
+
+void Form::beSigned(const Bureaucrat &obj)
+{
+    if (obj.getGrade() > 150)
+        throw GradeTooLowException();
+    else if (obj.getGrade() < 1)
+        throw GradeTooHighException();
+    _sign = true;
+}
+
+std::ostream &operator<<(std::ostream &os, const Form &obj)
+{
+    os << obj.getName() << " signed " << obj.getName();
+    return os;
+}

@@ -5,6 +5,8 @@
 #include <string>
 #include <exception>
 
+class Form;
+
 class Bureaucrat 
 {
     private:
@@ -33,6 +35,8 @@ class Bureaucrat
 
         void increment();
         void decrement();
+
+        void signForm(Form &fm);
 };
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &object);
