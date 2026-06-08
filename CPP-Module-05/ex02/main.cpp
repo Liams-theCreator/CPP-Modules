@@ -59,7 +59,7 @@ int main()
     std::cout << "\n=== Test 4: Grade too low to execute ===" << std::endl;
     try
     {
-        Bureaucrat dave("Dave", 100);
+        Bureaucrat dave("Dave", 150);
         ShrubberyCreationForm form4("garden");
         
         dave.signForm(form4);
@@ -67,9 +67,8 @@ int main()
     }
     catch (std::exception &e)
     {
-        std::cout << "Exception: " << e.what();
+        std::cout << "Exception: " << e.what() << std::endl;
     }
-    
     std::cout << "\n=== Test 5: Form not signed ===" << std::endl;
     try
     {
