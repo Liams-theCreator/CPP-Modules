@@ -2,11 +2,38 @@
 
 int main() 
 {
-    try {
-        Bureaucrat a("Alice", 2);
+    try
+    {
+        Bureaucrat b("Bob", 0);
+    }
+    catch (std::exception &e)
+    {
+        std::cout << "Exception -> " << e.what();
+    }
 
-        a.increment();
-        std::cout << a;
+    try
+    {
+        Bureaucrat b("Charlie", 151);
+    }
+    catch (std::exception &e)
+    {
+        std::cout << "Exception -> " << e.what();
+    }
+
+    try
+    {
+        Bureaucrat b("Dave", 1);
+        b.increment();
+    }
+    catch (std::exception &e)
+    {
+        std::cout << "Exception -> " << e.what();
+    }
+
+    try
+    {
+        Bureaucrat b("Eve", 150);
+        b.decrement();
     }
     catch (std::exception &e)
     {
