@@ -23,5 +23,4 @@ class ScalarConverter
         static void converter(const std::string &param);
 };
 
-
 #endif
