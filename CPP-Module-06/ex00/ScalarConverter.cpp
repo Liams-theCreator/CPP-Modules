@@ -15,7 +15,7 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter &obj)
 
 ScalarConverter::~ScalarConverter() {}
 
-int getType(const std::string &param)
+static Type getType(const std::string &param)
 {
     bool hasDot = false;
     bool hasF = false;
@@ -25,8 +25,8 @@ int getType(const std::string &param)
     if (param == "nan" || param == "nanf" ||
         param == "+inf" || param == "-inf" ||
         param == "+inff" || param == "-inff")
-        return PSUEDO;
-    if (param.size() == 1 && !std::isdigit(param[0]))
+        return PSEUDO;
+    if (param.size() == 1 && !std::isdigit(param[0]) && std::isprint(param[0]))
         return CHAR;
     if (param[0] == '-' || param[0] == '+')
         start = 1;
@@ -74,7 +74,7 @@ static void printFloat(double val)
 {
     float f = static_cast<float>(val);
     std::cout << "float: " << f;
-    if (f == static_cast<int>(f) && val == val && val != std::numeric_limits<float>::infinity() && val != -std::numeric_limits<float>::infinity())
+    if (f == std::floor(f) && val == val && val != std::numeric_limits<float>::infinity() && val != -std::numeric_limits<float>::infinity())
         std::cout << ".0f" << std::endl;
     else
         std::cout << "f" << std::endl;
@@ -83,7 +83,7 @@ static void printFloat(double val)
 static void printDouble(double val)
 {
     std::cout << "double: " << val;
-    if (val == static_cast<int>(val) && val == val && val != std::numeric_limits<double>::infinity() && val != -std::numeric_limits<double>::infinity())
+    if (val == std::floor(val) && val == val && val != std::numeric_limits<double>::infinity() && val != -std::numeric_limits<double>::infinity())
         std::cout << ".0" << std::endl;
     else
         std::cout << std::endl;

@@ -5,13 +5,17 @@
 #include <string>
 #include <cctype>
 #include <limits>
+#include <cstdlib>
+#include <cmath>
 
-#define CHAR 0
-#define INT 1
-#define FLOAT 2
-#define DOUBLE 3
-#define PSUEDO 4
-#define INVALID -1
+enum Type {
+    CHAR,
+    INT,
+    FLOAT,
+    DOUBLE,
+    PSEUDO,
+    INVALID
+};
 
 class ScalarConverter
 {
