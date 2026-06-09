@@ -10,6 +10,7 @@
 #define INT 1
 #define FLOAT 2
 #define DOUBLE 3
+#define PSUEDO 4
 #define INVALID -1
 
 class ScalarConverter
