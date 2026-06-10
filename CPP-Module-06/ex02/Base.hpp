@@ -1,9 +1,8 @@
 #ifndef BASE_HPP
 #define BASE_HPP
 
-#include "Base.hpp"
-
 #include <iostream>
+#include <string>
 
 class Base
 {
