@@ -12,7 +12,7 @@ int main(void)
     int intArr[] = {0, 1, 2, 3, 4};
     ::iter(intArr, 5, print<int>);
 
-    int constArr[] = {42, 42, 42, 42, 42};
+    const int constArr[] = {42, 42, 42, 42, 42};
     ::iter(constArr, 5, print<int>);
 
     return 0;
