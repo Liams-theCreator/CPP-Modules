@@ -1,21 +1,17 @@
 #include "Span.hpp"
-#include <algorithm>
-#include <numeric>
-#include <limits>
 
-Span::Span(unsigned int n) : _maxSize(n), _data()
-{
-	_data.reserve(n);
-}
+Span::Span(): maxSize(0) {}
 
-Span::Span(const Span &other) : _maxSize(other._maxSize), _data(other._data) {}
+Span::Span(unsigned int n) : maxSize(n) {}
+
+Span::Span(const Span &other) : maxSize(other.maxSize), data(other.data) {}
 
 Span &Span::operator=(const Span &other)
 {
 	if (this != &other)
 	{
-		_maxSize = other._maxSize;
-		_data = other._data;
+		maxSize = other.maxSize;
+		data = other.data;
 	}
 	return *this;
 }
@@ -24,42 +20,41 @@ Span::~Span() {}
 
 void Span::addNumber(int n)
 {
-	if (_data.size() >= _maxSize)
+	if (data.size() >= maxSize)
 		throw FullException();
-	_data.push_back(n);
+	data.push_back(n);
 }
 
 unsigned int Span::shortestSpan() const
 {
-	if (_data.size() < 2)
+	if (data.size() < 2)
 		throw NoSpanException();
 
-	std::vector<int> sorted(_data);
+	std::vector<int> sorted(data);
 	std::sort(sorted.begin(), sorted.end());
 
-	std::vector<int> diffs(sorted.size());
-	std::adjacent_difference(sorted.begin(), sorted.end(), diffs.begin());
+	std::vector<int> gaps(sorted.size());
+	std::adjacent_difference(sorted.begin(), sorted.end(), gaps.begin());
 
-	int shortest = *std::min_element(diffs.begin() + 1, diffs.end());
-	return static_cast<unsigned int>(shortest);
+	return *std::min_element(gaps.begin() + 1, gaps.end());
 }
 
 unsigned int Span::longestSpan() const
 {
-	if (_data.size() < 2)
+	if (data.size() < 2)
 		throw NoSpanException();
 
-	std::vector<int>::const_iterator lo = std::min_element(_data.begin(), _data.end());
-	std::vector<int>::const_iterator hi = std::max_element(_data.begin(), _data.end());
-	return static_cast<unsigned int>(*hi - *lo);
+	int lo = *std::min_element(data.begin(), data.end());
+	int hi = *std::max_element(data.begin(), data.end());
+	return hi - lo;
 }
 
 const char *Span::FullException::what() const throw()
 {
-	return "Span: capacity reached, cannot add more numbers";
+	return "Span is full";
 }
 
 const char *Span::NoSpanException::what() const throw()
 {
-	return "Span: need at least two numbers to compute a span";
+	return "Span need atleast two numbers";
 }
