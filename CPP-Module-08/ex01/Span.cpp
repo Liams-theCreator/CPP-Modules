@@ -33,10 +33,14 @@ unsigned int Span::shortestSpan() const
 	std::vector<int> sorted(data);
 	std::sort(sorted.begin(), sorted.end());
 
-	std::vector<int> gaps(sorted.size());
-	std::adjacent_difference(sorted.begin(), sorted.end(), gaps.begin());
-
-	return *std::min_element(gaps.begin() + 1, gaps.end());
+	unsigned int shortest = sorted[1] - sorted[0];
+	for (size_t i = 2; i < sorted.size(); ++i)
+	{
+		unsigned int gap = sorted[i] - sorted[i - 1];
+		if (gap < shortest)
+			shortest = gap;
+	}
+	return shortest;
 }
 
 unsigned int Span::longestSpan() const
